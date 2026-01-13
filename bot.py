@@ -66,12 +66,12 @@ async def update_pda():
     if message_id:
         try:
             msg = await channel.fetch_message(message_id)
-            await msg.edit(embeds=[priority_embed, travellers_embed])
+            await msg.edit(embeds=[priority_embed])
             return
         except discord.NotFound:
             message_id = None
 
-    msg = await channel.send(embeds=[priority_embed, travellers_embed])
+    msg = await channel.send(embeds=[priority_embed])
     message_id = msg.id
 
 # =====================
