@@ -56,16 +56,11 @@ async def update_pda():
 
     # === ADJUST ROW/COLUMN NUMBERS IF SHEET MOVES ===
     priority_items = read_block(5, 24, 3)   # Column C
-    travellers = read_block(5, 24, 6)        # Column F
+    travellers = read_block(5, 24, 5)        # Column F
 
     priority_embed = build_embed(
         "📦 Priority Items",
         priority_items
-    )
-
-    travellers_embed = build_embed(
-        "✈️ Travellers",
-        travellers
     )
 
     if message_id:
