@@ -41,7 +41,7 @@ def read_block(start_row, end_row, col):
 def build_embed(title, lines):
     embed = discord.Embed(
         title=title,
-        description="\n".join(lines),
+        description="\n\n".join(lines),
         color=0x2f3136
     )
     return embed
