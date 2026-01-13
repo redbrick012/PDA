@@ -49,7 +49,7 @@ def build_embed(title, lines):
 # =====================
 # TASK
 # =====================
-@tasks.loop(minutes=15)
+@tasks.loop(minutes=5)
 async def update_pda():
     global message_id
     channel = bot.get_channel(CHANNEL_ID)
