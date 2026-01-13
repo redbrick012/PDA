@@ -74,20 +74,20 @@ def build_embed(title):
 async def update_pda():
     global message_id
     channel = bot.get_channel(CHANNEL_ID)
-  
+
+    # === ADJUST ROW/COLUMN NUMBERS IF SHEET MOVES ===
     pda_embed = build_embed("📦 Priority Items")
 
-if message_id:
-    try:
-        msg = await channel.fetch_message(message_id)
-        await msg.edit(embeds=[pda_embed])
-        return
-    except discord.NotFound:
-        message_id = None
+    if message_id:
+        try:
+            msg = await channel.fetch_message(message_id)  # ✅ must be inside async
+            await msg.edit(embeds=[pda_embed])
+            return
+        except discord.NotFound:
+            message_id = None
 
-msg = await channel.send(embeds=[pda_embed])
-message_id = msg.id
-
+    msg = await channel.send(embeds=[pda_embed])
+    message_id = msg.id
 
 # =====================
 # EVENTS
