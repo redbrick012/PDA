@@ -62,7 +62,7 @@ def build_embed(title):
         embed.add_field(
             name=icon,
             value="\n".join(lines) if lines else "—",
-            inline=True  # False if you want each on a new line
+            inline=False  # False if you want each on a new line
         )
 
     return embed
