@@ -38,6 +38,15 @@ def read_block(start_row, end_row, col):
     values = sheet.col_values(col)[start_row - 1:end_row]
     return [v for v in values if v.strip()]
 
+def format_table(lines, width=28):
+    if not lines:
+        return "```—```"
+
+    formatted = []
+    for line in lines:
+        formatted.append(f"{line[:width]:<{width}}")
+
+    return "```\n" + "\n".join(formatted) + "\n```"
 def build_embed(title):
     embed = discord.Embed(
         title=title,
