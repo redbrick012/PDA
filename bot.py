@@ -41,7 +41,7 @@ def read_block(start_row, end_row, col):
 def build_embed(title):
     embed = discord.Embed(
         title=title,
-        color=0x2f3136
+        color=discord.Color.blue(),
     )
 
     # Define your field ranges
@@ -61,7 +61,8 @@ def build_embed(title):
         lines = read_block(start, end, 3)  # Column C
         embed.add_field(
             name=icon,
-            value="\n".join(lines) if lines else "—",
+            #value="\n".join(lines) if lines else "—",
+            value=format_table(lines),
             inline=False  # False if you want each on a new line
         )
 
